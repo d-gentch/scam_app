@@ -75,3 +75,7 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+gem "carrierwave"
+gem "mini_magick"
+gem "fog"
+gem "rmagick"
