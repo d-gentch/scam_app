@@ -1,2 +1,35 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="site site--home">
+    <div class="site__inner">
+        <main class="home">
+            <div class="star_img_container">
+                <div class="star_img">
+                    <%= link_to image_tag("logo.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+                </div>
+            </div>
+            <h1 class="home__title">ScamApp</h1>
+            <nav class="main-nav">
+                <ul class="main-nav__list">
+                    <% if user_signed_in? %>
+                        <li class="main-nav__list-item">
+                           <%= link_to "Profile", current_user, class: "main-nav__link" %>
+                        </li>
+                        <li class="main-nav__list-item">
+                            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "main-nav__link"%>
+                        </li>
+                    <% else %>
+                        <li class="main-nav__list-item">
+                            <%= link_to "Sign up",  new_user_registration_path, class: "main-nav__link" %>
+                        </li>
+                        <li class="main-nav__list-item">
+                            <%= link_to "Sign in",  new_user_session_path, class: "main-nav__link" %>
+                        </li>
+                    <% end %>
+                    <li class="main-nav__list-item">
+                        <%= link_to "About",  about_path, class: "main-nav__link" %>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+    </div>
+</div>
+
