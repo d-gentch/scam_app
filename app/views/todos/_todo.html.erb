@@ -1,0 +1,20 @@
+<% @todos.each do |todo| %>
+  <% if todo.title.present? %>
+    <div class="card mb-3 border-1">
+      <h6 class="card-title">
+          <div class="text-center mt-3">
+            <%= todo.title %>
+          </div>
+      </h6>
+      <div class="card-body">
+        <ul>
+          <% todo.items.each.with_index(1) do |item, index| %>
+            <%= render 'todos/items/item', todo: todo, item: item, index: index %>
+          <% end %>
+        </ul>
+        <%= render 'todos/items/items_form', todo: todo %>
+      </div>
+      <%= link_to "Destroy", todo_path(id: todo.id, user_id: params[:id]), data: { turbo_method: :delete }, class: "btn btn-outline-secondary btm-sm rounded-0" %>
+    </div>
+  <% end %> 
+<% end %> 

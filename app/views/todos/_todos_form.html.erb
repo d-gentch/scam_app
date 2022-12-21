@@ -1,0 +1,19 @@
+
+<%= form_for(Todo.new, url: todos_path) do |f| %> 
+    <ul>
+      <li>
+        <h3>
+          <%= f.label "New category of list:", class: "form-label mb-2" %>
+          <div class="input-group-text rounded-0", style="max-width: 40rem;">
+            <div class="input-group-prepend">
+              <%= f.check_box :checkable, class: "btn-check btn-outline-secondary" %>
+              <%= f.label :checkable, "Checkable", class:"btn btn-outline-secondary btn-check-2-dark rounded-0 " %>
+              <%= f.text_field :title, class: "form-input text-center", style: "width: 106%;" %>
+            </div>
+          </div>
+        </h3>
+      </li>
+    </ul>
+  <%= f.submit "Create", class: "btn btn-outline-dark w-100 rounded-0" %>
+<% end %>
+

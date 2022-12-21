@@ -1,11 +1,9 @@
-<%= render 'layouts/header' %>
-<div class="avatar">
-    <h1>
-        <%# <%= image_tag @user.avatar.url %> 
-        <%# <%= @user.name %> 
-    </h1> 
-</div>
+<%= content_for :title do %>
+  <div class="page-header__title">
+    <span class="branch">
+      <%= @user.name %>
+    </span>
+  </div>
+<% end %>
 
-<h1>
-    TODO:
-</h1> 
+<%= render 'layouts/header' %>

@@ -1,0 +1,25 @@
+<%= content_for :title do %>
+  <div class="page-header__title">
+    <span class="branch">
+      SCAMLIST
+    </span>
+  </div>
+<% end %>
+
+<%= render 'layouts/header' %>
+
+<turbo-frame id="todos">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= render 'todos/todos_form' %> 
+      </div>
+      <div class="col-sm-8">
+        <%= render 'todos/todo' %>
+      </div>
+    </div>
+  </div>
+</turbo-frame>
+
+
+

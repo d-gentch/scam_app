@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-
-  root            'static_pages#home'
-  get  'about' => 'static_pages#about'
-
   devise_scope :user do
-    # Redirests signing out users back to sign-in
     get "users", to: "devise/sessions#new"
   end
 
-  devise_for :users
+  devise_for :users 
 
-  resources  :users, only: [ :show ]
+  root 'static_pages#home'
+  
+  resources :users, only: [:show]
+  resources :todos, only: [:index, :create, :destroy] do 
+    resources :items, only: [:create, :destroy] do
+      member do
+        post :check
+      end
+    end
+  end
 end

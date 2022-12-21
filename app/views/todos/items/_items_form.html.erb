@@ -1,0 +1,6 @@
+<%= form_for(todo.items.new, url: todo_items_path(todo_id: todo.id)) do |f| %>
+  <div class="mb-3">
+    <%= f.text_field :content, class: "form-input mt-4 text-center" %>
+  </div>
+  <%= f.submit "Create", class: "btn btn-outline-secondary w-100 rounded-0" %>
+<% end %>

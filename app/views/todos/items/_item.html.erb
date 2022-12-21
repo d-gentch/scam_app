@@ -1,0 +1,13 @@
+<li>
+  <% if todo.checkable %>
+    <%= link_to check_todo_item_path(todo_id: todo.id, id: item.id), data: { turbo_method: :post }, class: "main-nav__link" do %>
+      <% if item.checkbox %>
+        <i class="bi bi-x-square"></i>
+      <% else %>
+        <i class="bi bi-square"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= index %>. <%= item.content %>
+  <%= link_to "Destroy", todo_item_path(todo_id: todo.id, id: item.id), data: { turbo_method: :delete }, class: "text-decoration-none" %>
+</li>

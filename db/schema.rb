@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_161116) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_21_152326) do
+  create_table "items", force: :cascade do |t|
+    t.string "content"
+    t.boolean "checkbox"
+    t.integer "todo_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_items_on_todo_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "todo_comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "user_id", null: false
+    t.integer "todo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_id"], name: "index_todo_comments_on_todo_id"
+    t.index ["user_id"], name: "index_todo_comments_on_user_id"
+  end
+
+  create_table "todos", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "checkable", default: false, null: false
+    t.index ["user_id"], name: "index_todos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -26,4 +57,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_161116) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "todos"
+  add_foreign_key "items", "users"
+  add_foreign_key "todo_comments", "todos"
+  add_foreign_key "todo_comments", "users"
+  add_foreign_key "todos", "users"
 end
