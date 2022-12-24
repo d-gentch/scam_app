@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_todo_list
+  before_action :set_todo_list, only: [:create, :destroy, :check]
 
   def create
     @item = @todo.items.create(item_params.merge({user_id: current_user.id}))
@@ -12,8 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = @todo.items.find(params[:id])
-    @item.destroy
+    @item = @todo.items.find(params[:id]).destroy
     redirect_to request.referrer 
   end
 

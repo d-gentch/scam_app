@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   resources :todos, only: [:index, :create, :destroy] do 
+    resources :todo_comments, only: [:create, :destroy, :update]
     resources :items, only: [:create, :destroy] do
       member do
         post :check
