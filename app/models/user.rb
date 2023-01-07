@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :users_todos, dependent: :destroy
-  has_many :followed_todos, through: :users_todos, source: :todo
+  has_many :followed_todos, through: :users_todos, source: :todo, dependent: :destroy
   has_many :todos, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :items, dependent: :destroy
