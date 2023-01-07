@@ -1,0 +1,37 @@
+<%= content_for :title do %>
+  <div class="page-header__title">
+    <span class="branch">
+      users
+    </span>
+  </div>
+<% end %>
+
+<%= render 'layouts/header' %>
+
+<turbo-frame id="users">
+  <div class="container mb-2">
+    <div class="row">
+      <div class="col align-self-start">
+      <h4 class='font-monospace'>
+        Scam accomplices
+      </h4>
+      </div>
+      <div class="col align-self-end">
+        <div class="shadow-none w-50">
+          <% @users.each do |user| %>
+            <div class="card border-dark bg-white border-1 mb-4 rounded-0 shadow-none">
+              <div class="card-header bg-white text-center">
+                <%= link_to user.name, user_path(id: user.id), class: "text-dark" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col align-self-center font-monospace">
+        <%= will_paginate %>
+      </div>
+      <div class="col align-self-end mb-3">
+      </div>
+    </div>
+  </div>
+</turbo-frame>

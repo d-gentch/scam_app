@@ -1,7 +1,7 @@
 <%= form_for(todo.todo_comments.new, url: todo_todo_comments_path(todo_id: todo.id)) do |f| %>
   <div class="mb-3">
     <%= f.label "write your comment:", class: "form-label" %>
-    <%= f.text_field :body, class: "form-input mt-4 text-center" %>
+    <%= f.text_field :body, class: "form-input text-center" %>
   </div>
   <%= f.submit "Post", class: "btn btn-outline-secondary w-100 rounded-0" %>
 <% end %>

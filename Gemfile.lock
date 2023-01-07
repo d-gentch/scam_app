@@ -114,6 +114,8 @@ GEM
     dry-inflector (1.0.0)
     erubi (1.11.0)
     excon (0.94.0)
+    faker (3.1.0)
+      i18n (>= 1.8.11, < 2)
     faraday (2.7.1)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -486,6 +488,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xml-simple (1.1.9)
       rexml
     xmlrpc (0.3.2)
@@ -504,6 +507,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.8)
+  faker
   fog
   jbuilder
   jsbundling-rails
@@ -519,6 +523,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  will_paginate
 
 RUBY VERSION
    ruby 3.1.1p18

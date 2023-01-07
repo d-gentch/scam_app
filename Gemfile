@@ -19,6 +19,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "fog"
 gem "rmagick"
+gem 'will_paginate'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -32,4 +33,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'faker'
 end

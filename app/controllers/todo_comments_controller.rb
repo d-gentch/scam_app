@@ -24,6 +24,10 @@ class TodoCommentsController < ApplicationController
 
   private
 
+  def set_todo_list
+    @todo = Todo.find(params[:todo_id])
+  end
+
     def todo_comments_params
       params.require(:todo_comment).permit(:body)
     end

@@ -1,0 +1,13 @@
+<%= content_for :title do %>
+  <div class="page-header__title">
+    <span class="branch">
+      feed
+    </span>
+  </div>
+<% end %>
+
+<%= render 'layouts/header' %>
+
+<% @feed_todos.each do |todo| %> 
+  <%= render 'todos/todo', todo: todo %>
+<% end %>

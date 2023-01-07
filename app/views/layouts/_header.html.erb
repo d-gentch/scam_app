@@ -9,6 +9,12 @@
     <nav class="main-nav">
       <ul class="main-nav__list">
         <li class="main-nav__list-item">
+          <%= link_to "Feed", feeds_path, class: "main-nav__link"%>
+        </li>
+        <li class="main-nav__list-item">
+          <%= link_to "Users", users_path, class: "main-nav__link"%>
+        </li>
+        <li class="main-nav__list-item">
           <%= link_to "Profile", current_user, class: "main-nav__link"%>
         </li>
         <li class="main-nav__list-item">

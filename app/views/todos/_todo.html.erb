@@ -1,24 +1,23 @@
-<% @todos.each do |todo| %>
-  <% if todo.title.present? %>
-    <div class="card mb-3 border-1">
-      <h6 class="card-title text-center mt-3">
-            <%= todo.title %>
-      </h6>
-      <div class="card-body">
-        <ul>
-          <% todo.items.each.with_index(1) do |item, index| %>
-            <%= render 'todos/items/item', todo: todo, item: item, index: index %>
-          <% end %>
-        </ul>
-        <ul>
-          <% todo.todo_comments.each do |comment| %>
-            <%= comment.user.name %>: <%= comment.body %>
-          <% end %>
-        </ul>
-        <%= render 'todos/todo_comments/todo_comments_form', todo: todo %>
+<% if todo.title.present? %>
+  <div class="card border-secondary rounded-0">
+    <h6 class="card-title text-center mt-3 font-monospace">
+      <%= todo.title %>
+      | Рейт:  
+        <%= todo.rating %> ( 
+        <%= link_to "+", upvote_todo_path(id: todo.id), data: { turbo_method: :post }, class: "main-nav__link" %>
+        <%= link_to "-", downvote_todo_path(id: todo.id), data: { turbo_method: :post }, class: "main-nav__link" %> )
+    </h6>
+    <div class="card-body">
+      <ul>
+        <% todo.items.each.with_index(1) do |item, index| %>
+          <%= render 'todos/items/item', todo: todo, item: item, index: index %>
+        <% end %>
+      </ul>
         <%= render 'todos/items/items_form', todo: todo %>
-      </div>
-      <%= link_to "Destroy", todo_path(id: todo.id, user_id: params[:id]), data: { turbo_method: :delete }, class: "btn btn-outline-secondary btm-sm rounded-0" %>
     </div>
-  <% end %> 
+  </div>
+  <div class="mb-4">
+    <%= link_to "Destroy", todo_path(id: todo.id, user_id: params[:id]), data: { turbo_method: :delete }, class: "btn btn-outline-secondary btm-sm border-top-0 rounded-0" %>
+  </div>
 <% end %> 
+

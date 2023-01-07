@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_todo_list, only: [:create, :destroy, :check]
+  before_action :set_todo, only: [:create, :destroy, :check]
 
   def create
     @item = @todo.items.create(item_params.merge({user_id: current_user.id}))
@@ -23,6 +23,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+    def set_todo
+      @todo = Todo.find(params[:todo_id])
+    end
 
     def item_params
       params.require(:item).permit(:content, :checkbox)

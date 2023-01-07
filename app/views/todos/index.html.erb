@@ -15,7 +15,9 @@
         <%= render 'todos/todos_form' %> 
       </div>
       <div class="col-sm-8">
-        <%= render 'todos/todo' %>
+        <% @todos.each do |todo| %>
+          <%= render 'todos/todo', todo: todo %>
+        <% end %>
       </div>
     </div>
   </div>

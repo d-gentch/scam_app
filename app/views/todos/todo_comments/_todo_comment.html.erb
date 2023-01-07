@@ -1,0 +1,9 @@
+<div class="ml-3">
+  <ul>
+    <% todo.todo_comments.each do |comment| %>
+      <li>
+        <%= comment.user.name %>: <%= comment.body %>
+      </li>
+    <% end %>
+  </ul>
+</div>
